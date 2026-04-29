@@ -29,7 +29,7 @@ class StatsResponse(BaseModel):
     Defines the shape of the data returned for the link statastics
     """
 
-    mode_cofig = ConfigDict(from_attributes=True)
+    model_cofig = ConfigDict(from_attributes=True)
 
     short_code: str
     orgininal_url: str

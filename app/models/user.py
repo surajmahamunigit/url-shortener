@@ -7,7 +7,7 @@ class User(Base):
     Represnt the users table in the database
     """
 
-    __tablename__ == "users"
+    __tablename__ = "users"
 
     id = Column(Integer, primary_key=True, index=True)
     # Username must be unique across all the users
