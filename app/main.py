@@ -16,8 +16,8 @@ app = FastAPI(lifespan=lifespan)
 
 
 app.include_router(auth.router)
-# app.include_router(links.router)
-# app.include_router(redirect.router)
+app.include_router(links.router)
+app.include_router(redirect.router)
 
 
 @app.get("/")
