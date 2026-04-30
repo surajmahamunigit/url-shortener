@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 from fastapi import Depends, HTTPException
-from fastapi.security import OAuth2PasswordBearer
+from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 from sqlalchemy.orm import Session
@@ -13,7 +13,7 @@ from app.models.user import User
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 # Reads JWT token from the Authorization header of incoming request
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")
+oauth2_scheme = HTTPBearer()
 
 
 def hash_password(password: str) -> str:
@@ -50,12 +50,14 @@ def create_access_token(data: dict) -> str:
 
 
 def get_current_user(
-    token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)
+    credentials: HTTPAuthorizationCredentials = Depends(oauth2_scheme),
+    db: Session = Depends(get_db),
 ) -> User:
     """
     Reads the JWT token from the request, decodes it, and returns the current user
     Raises 401 if the token is invalid, expired, or the user doesnt exist
     """
+    token = credentials.credentials
     credentials_exception = HTTPException(
         status_code=401, detail="Could not validate the credentials."
     )
