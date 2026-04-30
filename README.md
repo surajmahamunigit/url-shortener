@@ -21,28 +21,31 @@ A REST API built with FastAPI that allows users to shorten URLs, track click sta
 - Delete your links
 
 ## Project Structure
-url_shortener/
-├── app/
-│   ├── main.py          # Entry point
-│   ├── config.py        # Environment variables
-│   ├── routes/
-│   │   ├── auth.py      # Register and login
-│   │   ├── links.py     # Link management
-│   │   └── redirect.py  # URL redirect
-│   ├── models/
-│   │   ├── user.py      # User table
-│   │   └── link.py      # Link table
-│   ├── schemas/
-│   │   ├── auth.py      # Auth request/response shapes
-│   │   └── link.py      # Link request/response shapes
-│   ├── db/
-│   │   ├── database.py  # Database connection
-│   │   └── init_db.py   # Table creation
-│   └── utils/
-│       └── security.py  # JWT and password helpers
-├── .env                 # Secrets (not pushed to GitHub)
-├── requirements.txt
-└── README.md
+
+    url_shortener/
+    ├── app/
+    │   ├── main.py          # Entry point
+    │   ├── config.py        # Environment variables
+    │   ├── routes/
+    │   │   ├── auth.py      # Register and login
+    │   │   ├── links.py     # Link management
+    │   │   └── redirect.py  # URL redirect
+    │   ├── models/
+    │   │   ├── user.py      # User table
+    │   │   └── link.py      # Link table
+    │   ├── schemas/
+    │   │   ├── auth.py      # Auth request/response shapes
+    │   │   └── link.py      # Link request/response shapes
+    │   ├── db/
+    │   │   ├── database.py  # Database connection
+    │   │   └── init_db.py   # Table creation
+    │   └── utils/
+    │       └── security.py  # JWT and password helpers
+    ├── .env                 # Secrets (not pushed to GitHub)
+    ├── requirements.txt
+    └── README.md
+
+
 ## Getting Started
 
 ### 1. Clone the repository
